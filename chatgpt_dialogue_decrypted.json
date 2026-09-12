@@ -1,0 +1,61 @@
+{
+  "sourceUrl": "https://chatgpt.com/share/6aa3dde7-09b8-83eb-aff8-b8edae14ff37",
+  "title": "Étudier les serveurs console & GameLift Anywhere - Économie & Patchs",
+  "decryptedAt": "2026-09-12T08:41:00Z",
+  "status": "DECRYPTED_FULL_CONTINUATION",
+  "totalTurns": 9,
+  "theFiveKeys": {
+    "1": "GameSessionId (ARN unique de la session)",
+    "2": "DNS Name (Nom d'hôte résolvable pour TLS)",
+    "3": "IP Address (Adresse IP directe du serveur/compute)",
+    "4": "Port (Port UDP/TCP direct d'écoute, ex: 7777)",
+    "5": "PlayerSessionId (Jeton d'admission unique du joueur)"
+  },
+  "dialogueTurns": [
+    {
+      "turn": 1,
+      "theme": "Localisation et hébergement des serveurs console",
+      "summary": "Explication de la distinction entre plateforme (PSN/Xbox) et serveurs de partie dédiés (AWS GameLift, Azure PlayFab, EOS). Schéma complet du transit réseau des consoles."
+    },
+    {
+      "turn": 2,
+      "theme": "URLs de connexion et pages navigantes",
+      "summary": "Analyse de la différence entre l'URL de management AWS (https://gamelift.us-east-2.amazonaws.com/) et les adresses UDP directes des sessions de jeu."
+    },
+    {
+      "turn": 3,
+      "theme": "Dialecte DevTools Transport (DVT)",
+      "summary": "Conception d'un protocole d'échange front/back injectable dans l'inspecteur pour surveiller les flux, générer des tokens et piloter la console locale."
+    },
+    {
+      "turn": 4,
+      "theme": "Hébergement temporaire prolongé & mise à niveau",
+      "summary": "Architecture NUC Intel / Proxmox / Docker et comparaison avec les flottes GameLift Anywhere et PlayFab pour maintenir une présence serveur continue."
+    },
+    {
+      "turn": 5,
+      "theme": "Spécification GameLift Anywhere sur PC Intel",
+      "summary": "Guide pas-à-pas : Custom Location (custom-intel-dev) -> CreateFleet Anywhere -> RegisterCompute -> Backend localhost:3000 -> CreateGameSession -> CreatePlayerSession."
+    },
+    {
+      "turn": 6,
+      "theme": "La chaîne de connexion des 5 informations",
+      "summary": "Démonstration que CreatePlayerSession est l'unique API AWS retournant simultanément GameSessionId, DNS, IP, Port et PlayerSessionId."
+    },
+    {
+      "turn": 7,
+      "theme": "Token Economic Layer & Coût Évité (AWS Free Through Optimization)",
+      "summary": "Transformation de l'idée de gratuité en 'Coût Évité' : orchestrateur local priorisant le compute local gratuit (CPU/RAM/GPU) pour économiser les frais AWS, avec compteur de gains cumulés et burn du droit de calcul."
+    },
+    {
+      "turn": 8,
+      "theme": "AWS API Domain Registry (Route 53, API Gateway & Endpoints)",
+      "summary": "Cartographie complète des domaines et points d'accès autorisés : Domain -> DNS (Route 53) -> API Gateway -> Route (/world, /patch, /session) -> Compute -> Game.cube."
+    },
+    {
+      "turn": 9,
+      "theme": "Tokenized Patch Registry pour Game.cube (Patch v0.1.3)",
+      "summary": "Gestionnaire d'objets de mise à jour logicielles avec vérification SHA-256, simulation locale, déploiement par étapes (Staging -> Prod) et burn du jeton de déploiement après healthcheck."
+    }
+  ]
+}
