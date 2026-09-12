@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONSOL // Economic Layer & Game.cube World</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="theme-analogue">
+  <div class="hud-scanlines"></div>
+  <div class="hud-flicker"></div>
+
+  <!-- HEADER / TELEMETRY MATRIX -->
+  <header class="console-header">
+    <div class="header-branding">
+      <div class="brand-badge">ANALOGUE // DVT-ECONOMICS</div>
+      <h1 class="brand-title">CONSOL <span>// ECONOMIC LAYER</span></h1>
+      <div class="brand-subtitle">Coût AWS Évité &bull; Tokenized Patch Registry &bull; Game.cube World</div>
+    </div>
+
+    <div class="header-telemetry">
+      <div class="telemetry-cell">
+        <span class="cell-label">COÛT AWS ÉVITÉ</span>
+        <span class="cell-value text-green" id="badge-cost-saved">$0.0000</span>
+      </div>
+      <div class="telemetry-cell">
+        <span class="cell-label">VERSION DU PATCH</span>
+        <span class="cell-value text-cyan" id="badge-patch-version">v0.1.2</span>
+      </div>
+      <div class="telemetry-cell">
+        <span class="cell-label">AWS LATENCE (PING)</span>
+        <span class="cell-value text-amber" id="badge-aws-ping">-- ms</span>
+      </div>
+      <div class="telemetry-cell">
+        <span class="cell-label">TOTAL BURNED (CHAIN)</span>
+        <span class="cell-value text-red" id="badge-total-burned">0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTROLS & TOOLBAR -->
+  <nav class="console-toolbar">
+    <button class="btn btn-primary" id="btn-cordial-handshake">
+      <span class="icon">&hearts;</span> ÉCHANGE CORDIAL
+    </button>
+    <button class="btn btn-action" id="btn-dial-economic">
+      <span class="icon">&#9878;</span> DIAL ÉCONOMIQUE (COÛT ÉVITÉ)
+    </button>
+    <button class="btn btn-action" id="btn-create-session">
+      <span class="icon">&loz;</span> CRÉER GAMESESSION
+    </button>
+    <button class="btn btn-secondary" id="btn-connect-player">
+      <span class="icon">&bull;</span> RÉSERVER JOUEUR (TTL 60s)
+    </button>
+    <button class="btn btn-action" id="btn-enter-cube">
+      <span class="icon">&#9638;</span> ENTRER DANS LE GAME.CUBE
+    </button>
+    <button class="btn btn-warning" id="btn-deploy-patch">
+      <span class="icon">&#9881;</span> DÉPLOYER PATCH v0.1.3
+    </button>
+    <button class="btn btn-warning" id="btn-toggle-mode">
+      <span class="icon">&harr;</span> BASCULE ÉMULATEUR/AWS
+    </button>
+    <button class="btn btn-audio" id="btn-toggle-audio">
+      <span class="icon">&#9835;</span> AUDIO: ON
+    </button>
+    <div class="toolbar-status">
+      <span class="led-ping active"></span> UDP :7777 ACTIF // ROUTEUR ÉCONOMIQUE PRÊT
+    </div>
+  </nav>
+
+  <!-- MAIN MONITOR GRID -->
+  <main class="console-grid">
+
+    <!-- LEFT COLUMN : 3D GAME.CUBE WORLD & MULTI-CHANNEL SCOPE -->
+    <section class="panel panel-analogue">
+      <div class="panel-header">
+        <h2>INSTANCE 3D : GAME.CUBE WORLD (:7777 UDP)</h2>
+        <span class="panel-tag">ISOMETRIC WIREFRAME</span>
+      </div>
+      
+      <div class="canvas-container cube-viewport">
+        <canvas id="cubeCanvas" width="600" height="190"></canvas>
+        <div class="scope-overlay">
+          <div class="scope-stat">ZONE: <span class="text-cyan">CUBE_INSTANCE_01</span></div>
+          <div class="scope-stat">ARBITRAGE: <span id="disp-routing" class="text-green">LOCAL (COÛT = $0)</span></div>
+          <div class="scope-stat">ACCÈS: <span id="cube-access" class="text-amber">EN ATTENTE</span></div>
+        </div>
+      </div>
+
+      <div class="panel-header" style="margin-top: 14px;">
+        <h2>SPECTRE ANALOGIQUE MULTI-CANAUX</h2>
+        <span class="panel-tag">CH1:VERT | CH2:CYAN | CH3:ROUGE</span>
+      </div>
+      <div class="canvas-container">
+        <canvas id="oscilloscope" width="600" height="110"></canvas>
+      </div>
+
+      <!-- THE 5 KEYS -->
+      <div class="connection-keys-box" style="margin-top: 12px;">
+        <div class="keys-title">CHAÎNE DE CONNEXION ACTIVE (5 INFORMATIONS CARDINALES) :</div>
+        <div class="keys-grid">
+          <div class="key-card">
+            <span class="key-name">GameSessionId</span>
+            <span class="key-val" id="disp-session-id">EN ATTENTE...</span>
+          </div>
+          <div class="key-card">
+            <span class="key-name">DNS Name</span>
+            <span class="key-val" id="disp-dns">gsess-local.us-east-2.amazongamelift.com</span>
+          </div>
+          <div class="key-card">
+            <span class="key-name">IP Address</span>
+            <span class="key-val" id="disp-ip">127.0.0.1</span>
+          </div>
+          <div class="key-card">
+            <span class="key-name">Port UDP Réel</span>
+            <span class="key-val text-cyan" id="disp-port">7777 (Actif)</span>
+          </div>
+          <div class="key-card full-span">
+            <span class="key-name">PlayerSessionId (Admission Gameplay)</span>
+            <span class="key-val text-green" id="disp-player-session">RESERVER JOUEUR POUR GÉNÉRER</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT COLUMN : TOKEN VAULT, ECONOMIC LAYER & DECRYPTED INTEL -->
+    <section class="panel panel-burn">
+      <div class="panel-header">
+        <h2>MATRICE DE JETONS & ÉCONOMIE DU DIALOGUE</h2>
+        <span class="panel-tag">DIAL & BURN</span>
+      </div>
+      <p class="panel-desc">
+        Arbitrage intelligent : exécution locale sur PC Intel pour éviter les frais AWS. Tout token consommé est scellé dans la micro-blockchain.
+      </p>
+
+      <div class="token-list-container">
+        <table class="data-table" id="tokens-table">
+          <thead>
+            <tr>
+              <th>TOKEN ID</th>
+              <th>TYPE</th>
+              <th>TTL / EXPIRATION</th>
+              <th>ACTION DESTRUCTRICE</th>
+            </tr>
+          </thead>
+          <tbody id="tokens-tbody">
+            <tr><td colspan="4" class="text-muted">Aucun jeton actif</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- INTEL DIALOGUE VIEWER -->
+      <div class="panel-header" style="margin-top: 14px;">
+        <h2>BASE DE DIALOGUE DÉCRYPTÉE (TOURS 1 À 9)</h2>
+        <span class="panel-tag">JSON INTEGRATED</span>
+      </div>
+      <div class="intel-json-box" id="intel-summary-box">
+        <div style="color:var(--cyan); margin-bottom:4px; font-weight:bold;">Source : https://chatgpt.com/share/6aa3dde7-09b8-83eb-aff8-b8edae14ff37</div>
+        <div id="intel-turns-list" style="font-size: 10px; color: var(--text-muted);">
+          Chargement de l'intel...
+        </div>
+      </div>
+
+      <div class="burn-stats-row" style="margin-top: 14px;">
+        <div class="stat-card">
+          <span class="stat-num text-green" id="stat-opt-count">0</span>
+          <span class="stat-label">CALCULS OPTIMISÉS</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num text-red" id="stat-burnt-tokens">0</span>
+          <span class="stat-label">JETONS BRÛLÉS</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num text-amber" id="stat-etiquette">100%</span>
+          <span class="stat-label">POLITESSE DU DIALOGUE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM ROW : DIALOGUE JOURNAL & AUDIT LEDGER -->
+    <section class="panel panel-full panel-journal">
+      <div class="panel-header">
+        <h2>VERSEMENT DU DIALOGUE & HASH-CHAIN D'AUDIT (LEDGER JSONL)</h2>
+        <span class="panel-tag">STREAM DVT/2</span>
+      </div>
+      <div class="terminal-container" id="terminal-logs">
+        <div class="log-entry system">[BOOT] Consol Economic Layer initialisé sur le port 3000.</div>
+        <div class="log-entry system">[ROUTER] Arbitrage local / AWS prêt pour minimiser les coûts.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="console-footer">
+    <span>CONSOL Economic Layer &bull; Socket UDP :7777 &bull; Patch v0.1.3 &bull; GameLift us-east-2</span>
+    <span id="footer-time">2026-09-12 08:41:00</span>
+  </footer>
+
+  <script src="/dvt-client.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
